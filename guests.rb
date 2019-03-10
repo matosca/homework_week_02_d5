@@ -18,7 +18,18 @@ class Guest
     return "Turn it off"
   end
 
-  def score_per_song(song)
+  def win_score(song)
     @score += song.bonus
+  end
+  def lose_score(song)
+    @score -= song.bonus
+  end
+
+  def win_double_bonus(guest, song)
+    @score += song.double_bonus if guest.play_guest_favourite_song(guest, song)
+  end
+
+  def lose_double_bonus(guest, song)
+    @score -= song.double_bonus if guest.play_guest_favourite_song(guest, song)
   end
 end

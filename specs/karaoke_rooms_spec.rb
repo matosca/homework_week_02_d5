@@ -6,6 +6,7 @@ require_relative('../songs')
 
 class TestKaraokeRoom < MiniTest::Test
   def setup
+
     @song1 = Song.new("Sweet Child O' Mine", 3)
     @song2 = Song.new("Eye of the Tiger", 5)
     @song3 = Song.new("Beat it", 2)
@@ -22,10 +23,10 @@ class TestKaraokeRoom < MiniTest::Test
     @room2 = KaraokeRoom.new("Pure Rock", 50, @songs, 3, 5)
     @room3 = KaraokeRoom.new("Medley Night", 30, @songs, 7, 15)
 
-    @guest1 = Guest.new("Jane", 50, "Crazy in Love")
-    @guest2 = Guest.new("Michael", 45, "Beat it")
-    @guest3 = Guest.new("Peter", 60, "We Will Rock You")
-    @guest4 = Guest.new("Walter", 70, "Get Lucky")
+    @guest1 = Guest.new("Jane", 50, "Crazy in Love", 0)
+    @guest2 = Guest.new("Michael", 45, "Beat it", 10)
+    @guest3 = Guest.new("Peter", 60, "We Will Rock You", 6)
+    @guest4 = Guest.new("Walter", 70, "Get Lucky", 15)
 
     @group = [@guest1, @guest2, @guest3, @guest4]
   end

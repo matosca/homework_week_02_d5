@@ -36,10 +36,10 @@ class TestBar < MiniTest::Test
     @room2 = KaraokeRoom.new("Pure Rock", 50, @songs, 3, 5)
     @room3 = KaraokeRoom.new("Medley Night", 30, @songs, 7, 15)
 
-    @guest1 = Guest.new("Jane", 50, "Crazy in Love")
-    @guest2 = Guest.new("Michael", 45, "Beat it")
-    @guest3 = Guest.new("Peter", 60, "We Will Rock You")
-    @guest4 = Guest.new("Walter", 70, "Get Lucky")
+    @guest1 = Guest.new("Jane", 50, "Crazy in Love", 0)
+    @guest2 = Guest.new("Michael", 45, "Beat it", 10)
+    @guest3 = Guest.new("Peter", 60, "We Will Rock You", 6)
+    @guest4 = Guest.new("Walter", 70, "Get Lucky", 15)
   end
 
   def test_bas_has_till_float
@@ -50,7 +50,7 @@ class TestBar < MiniTest::Test
     assert_equal(@drinks, @bar.drinks)
   end
 
-  def test_sell_drinks_to_guests__guest_wallet
+  def test_sell_drinks_to_guests__wallet_decreased
     result = @bar.sell_drink(@guest4, @drink1, @room3)
     assert_equal(21, result)
   end

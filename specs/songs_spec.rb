@@ -18,4 +18,12 @@ class TestSong < MiniTest::Test
   def test_song_has_title
     assert_equal("We Will Rock You", @song4.song_title)
   end
+
+  def test_song_has_bonus_points
+    assert_equal(4, @song9.bonus)
+  end
+
+  def test_song_double_bonus_points
+    assert_equal(10, @song2.double_bonus)
+  end
 end

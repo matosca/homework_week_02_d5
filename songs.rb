@@ -6,4 +6,8 @@ class Song
     @song_title = song_title
     @bonus = bonus
   end
+
+  def double_bonus
+    @bonus * 2
+  end
 end

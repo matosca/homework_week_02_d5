@@ -7,9 +7,9 @@ require_relative('../karaoke_rooms')
 class TestGuest < MiniTest::Test
   def setup
     @guest1 = Guest.new("Jane", 50, "Crazy in Love", 0)
-    @guest2 = Guest.new("Michael", 45, "Beat it", 0)
-    @guest3 = Guest.new("Peter", 60, "We Will Rock You", 0)
-    @guest4 = Guest.new("Walter", 70, "Get Lucky", 0)
+    @guest2 = Guest.new("Michael", 45, "Beat it", 10)
+    @guest3 = Guest.new("Peter", 60, "We Will Rock You", 6)
+    @guest4 = Guest.new("Walter", 70, "Get Lucky", 15)
 
     @song1 = Song.new("Sweet Child O' Mine", 3)
     @song2 = Song.new("Eye of the Tiger", 5)
@@ -46,8 +46,23 @@ class TestGuest < MiniTest::Test
     assert_equal("Turn it off", result)
   end
 
-  def test_guest_score_per_song
-    result = @guest1.score_per_song(@song5)
+  def test_guest_score_per_song__win
+    result = @guest1.win_score(@song5)
     assert_equal(8, result)
   end
+  def test_guest_score_per_song__lose
+    result = @guest2.lose_score(@song5)
+    assert_equal(2, result)
+  end
+
+  def test_guest_double_bonus__win
+    result = @guest2.win_double_bonus(@guest2, @song3)
+    assert_equal(14, result)
+  end
+
+  def test_guest_double_bonus__lose
+    result = @guest4.lose_double_bonus(@guest4, @song6)
+    assert_equal(3, result)
+  end
+  
 end
