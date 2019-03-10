@@ -32,4 +32,8 @@ class Guest
   def lose_double_bonus(guest, song)
     @score -= song.double_bonus if guest.play_guest_favourite_song(guest, song)
   end
+
+  def score_to_zero(guest, song, screen)
+    return screen.game_over if guest.lose_score(song)
+  end
 end

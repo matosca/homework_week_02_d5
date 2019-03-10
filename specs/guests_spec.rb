@@ -3,6 +3,7 @@ require('minitest/rg')
 require_relative('../guests')
 require_relative('../songs')
 require_relative('../karaoke_rooms')
+require_relative('../screen')
 
 class TestGuest < MiniTest::Test
   def setup
@@ -26,6 +27,9 @@ class TestGuest < MiniTest::Test
     @room1 = KaraokeRoom.new("Sing City", 40, @songs, 5, 10)
     @room2 = KaraokeRoom.new("Pure Rock", 50, @songs, 3, 5)
     @room3 = KaraokeRoom.new("Medley Night", 30, @songs, 7, 15)
+
+    @screen1 = Screen.new(true)
+    @screen2 = Screen.new(false)
   end
 
   def test_guest_has_a_name
@@ -64,5 +68,10 @@ class TestGuest < MiniTest::Test
     result = @guest4.lose_double_bonus(@guest4, @song6)
     assert_equal(3, result)
   end
-  
+
+  def test_guest_score_game_over
+    result = @guest3.score_to_zero(@guest3, @song6, @screen1)
+    assert_equal("GAME OVER", result)
+  end
+
 end

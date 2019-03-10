@@ -77,4 +77,9 @@ class TestKaraokeRoom < MiniTest::Test
     result = @room2.pay_entry_fee(@guest4, @room2)
     assert_equal(15, result)
   end
+
+  def test_play_song
+    result = @room3.play_song(@song8)
+    assert_equal("Nanana nana ...Get Lucky", result)
+  end
 end

@@ -33,4 +33,8 @@ class KaraokeRoom
     total -= room.entry_fee
     return total
   end
+
+  def play_song(song)
+    return "Nanana nana ...#{song.song_title}"
+  end
 end
