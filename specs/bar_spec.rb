@@ -59,4 +59,9 @@ class TestBar < MiniTest::Test
     result = @bar.total_till_float(@guest4, @drink1, @room3)
     assert_equal(149, result)
   end
+
+  def test_stock_taking_of_drinks
+    result = @bar.stock_taking("Cider")
+    assert_equal(1, result)
+  end
 end

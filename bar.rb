@@ -17,4 +17,9 @@ class Bar
     total_costs = total_room_cost + drink.price
     @till_float += total_costs
   end
+
+  def stock_taking(drink)
+    return @drinks[drink].count()
+  end
+
 end
